@@ -1,45 +1,18 @@
 1) ----------------------------------------------------------------------------------------------
 private void set_mode(bool mod)
 {
-if(mod==true)
-{
-label1.Enabled=true;
-button1.Enabled=true;
-button2.Enabled=true;
-button3.Enabled=false;
-button4.Enabled=false;
-}
-else
-{
-label1.Enabled=false;
-button1.Enabled=false;
-button2.Enabled=false;
-button3.Enabled=true;
-button4.Enabled=true;
-}
+label1.Enabled=mod;
+button1.Enabled=mod;
+button2.Enabled=mod;
+button3.Enabled=!mod;
+button4.Enabled=!mod;
 }
 2) ----------------------------------------------------------------------------------------------
-switch (driver.Status)
-{
-case ClientStatus.Unknown:
-return m_driverStatusNames[ClientStatus.Unknown];
-case ClientStatus.Free:
-return m_driverStatusNames[ClientStatus.Free];
-case ClientStatus.Busy:
-return m_driverStatusNames[ClientStatus.Busy];
-case ClientStatus.InWay:
-return m_driverStatusNames[ClientStatus.InWay];
-case ClientStatus.Work:
-return m_driverStatusNames[ClientStatus.Work];
-case ClientStatus.Break:
-return m_driverStatusNames[ClientStatus.Break];
-case ClientStatus.Alarm:
-return m_driverStatusNames[ClientStatus.Alarm];
-}
-3) ----------------------------------------------------------------------------------------------
+    return m_driverStatusNames[driver.Status];
+3)----------------------------------------------------------------------
 uint i;
 ...
-if (i.ToString().Length == 1)
+if (i/ 10 == 0)
 {
 ...
 }
